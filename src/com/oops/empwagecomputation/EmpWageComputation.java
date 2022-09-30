@@ -3,17 +3,17 @@ package com.oops.empwagecomputation;
 import java.util.*;
 
 public class EmpWageComputation {
-	public static void main(String[] args) {
-		System.out.println("Welcome to Employee Wage Computation Program using OOPS Concept");
-
-		int empWagePerHour = 20;
-		int fullDayHour = 8;
-		int halfDayHour = 4;
-		int salary = 0;
-		int totalSalary = 0;
-		int totalWorkingDays = 20;
-		int days =0;
-		int totalWorkingHours = 0;
+	static int empWagePerHour = 20;
+	static int fullDayHour = 8;
+	static int halfDayHour = 4;
+	static int totalWorkingDays = 20;
+	static int salary = 0;
+	static int totalSalary = 0;
+	static int days =0;
+	static int totalWorkingHours = 0;
+		
+		static void ComputeEmpWage() {
+			
 		Random random = new Random();
 		while(days != totalWorkingDays && totalWorkingHours != 100)
 		{
@@ -37,6 +37,9 @@ public class EmpWageComputation {
 				totalSalary = totalSalary + salary;
 				days++;
 		}
-		System.out.println("Total Salary: "+totalSalary);
+		
 	}
+		void displayTotalSalary() {
+			System.out.println("Total Salary: "+totalSalary);
+			}
 }
