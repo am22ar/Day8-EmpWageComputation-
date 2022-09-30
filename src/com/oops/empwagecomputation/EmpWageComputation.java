@@ -9,21 +9,26 @@ public class EmpWageComputation {
 		int fullDayHour = 8;
 		int halfDayHour = 4;
 		int salary = 0;
+		int totalSalary = 0;
+		int totalWorkingDays = 20;
 		Random random = new Random();
-		int empCheck = random.nextInt(3);
-		switch (empCheck) {
-		case 0:
-			System.out.println("Employee is Absent.");
-			break;
-		case 1:
-			System.out.println("Employee is Present.");
-			salary = empWagePerHour * fullDayHour;
-			break;
-		case 2:
-			System.out.println("Present for Half Day");
-			salary = empWagePerHour * halfDayHour;
+		for(int i=1; i<totalWorkingDays; i++)
+		{
+			int empCheck = random.nextInt(3);
+			switch(empCheck)
+			{
+				case 0: System.out.println("Employee is Absent.");
+						break;	
+				case 1: System.out.println("Employee is Present.");
+						salary = empWagePerHour * fullDayHour ;
+						break;
+				case 2: System.out.println("Present for Half Day");
+						salary = empWagePerHour * halfDayHour ;
+			}
+				//System.out.println("random: "+empCheck);
+				System.out.println("Salary is: "+salary);
+				totalSalary = totalSalary + salary;
 		}
-		// System.out.println("random: "+empCheck);
-		System.out.println("Salary is: " + salary);
+		System.out.println("Total Salary: "+totalSalary);
 	}
 }
