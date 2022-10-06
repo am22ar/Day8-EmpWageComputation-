@@ -9,9 +9,7 @@ public class EmpWageComputation {
 	private final int empWagePerHour;
 	private final int workingHours;
 	private final int workingDays;
-//	
-//	static int salary = 0;
-//	static int totalSalary = 0;
+	int totalSalary;
 	static Random random = new Random();
 
 	public EmpWageComputation(String companyName, int empWagePerHour, int workingHours, int workingDays) {
@@ -21,9 +19,9 @@ public class EmpWageComputation {
 		this.workingHours = workingHours;
 	}
 
-	public int calculateWage() {
+	public void calculateWage() {
 		int salary = 0;
-		int totalSalary = 0;
+		totalSalary = 0;
 		int totalWorkingHours = 0;
 		int days = 0;
 
@@ -51,22 +49,29 @@ public class EmpWageComputation {
 			
 			System.out.print("Day: "+days+"\t random: "+empCheck+"\t");
 			System.out.print("Working Hours: "+totalWorkingHours+"\t");
-			System.out.print("\tSalary is: "+salary+"\t");
+			System.out.print("Salary is: "+salary+"\t");
 			totalSalary = totalSalary + salary;
 			
 		}
 		
-		return totalWorkingHours * empWagePerHour;
+		//return totalWorkingHours * empWagePerHour;
+	}
+	public String toString() {
+		return "Total Wage for Company: "+companyName+" is "+totalSalary;
+		
 	}
 
 	public static void main(String[] args) {
-		// EmpWageComputation dmart = new EmpWageComputation(companyName, empWagePerHour, workingHours, workingDays);
-		 EmpWageComputation dmart = new EmpWageComputation("Dmart", 23, 90, 21);
-		 EmpWageComputation walmart = new EmpWageComputation("Walmart", 24, 109, 22);
+		
+		 EmpWageComputation netflix = new EmpWageComputation("netflix", 23, 90, 21);
+		 EmpWageComputation jio = new EmpWageComputation("jio", 24, 109, 22);
+		 netflix.calculateWage();
+		 System.out.println(netflix);
+		 jio.calculateWage();
+		 System.out.println(jio);
 		 
-		 
-		 System.out.println("Total employee's wage of Company: " + dmart.companyName + ": " + dmart.calculateWage());
-		 System.out.println("Total employee's wage of Company: " + walmart.companyName + ": " + walmart.calculateWage());
+		 //System.out.println("Total employee's wage of Company: " + dmart.companyName + ": " + dmart.calculateWage());
+		 //System.out.println("Total employee's wage of Company: " + walmart.companyName + ": " + walmart.calculateWage());
 		
 		
 	}
