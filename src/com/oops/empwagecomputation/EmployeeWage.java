@@ -1,22 +1,23 @@
 package com.oops.empwagecomputation;
 
+import java.util.ArrayList;
+
 public class EmployeeWage implements IEmployeeWage {
 
-	// Declaring a constant
 	public static final int IS_FULLTIME = 1;
 	public static final int IS_PARTTIME = 2;
-	private int numOfCompany = 0;
-	private CompanyEmpWage[] companyEmpWages;
+
+	private ArrayList<CompanyEmpWage> companyEmpWageList;
 
 	public EmployeeWage() {
-		companyEmpWages = new CompanyEmpWage[10];
+		companyEmpWageList = new ArrayList<>();
 	}
 
 	public void addCompany(String companyName, int wagePerHr, int totalWorkingDays, int totalWorkingHrs) {
 		CompanyEmpWage companyEmpWage = new CompanyEmpWage(companyName, wagePerHr, totalWorkingDays, totalWorkingHrs);
 		companyEmpWage.setTotalEmpWage(computeEmployeeWage(wagePerHr, totalWorkingDays, totalWorkingHrs));
-		companyEmpWages[numOfCompany] = companyEmpWage;
-		numOfCompany++;
+		companyEmpWageList.add(companyEmpWage);
+
 	}
 
 	public int computeEmployeeWage(int wagePerHr, int totalWorkingDays, int totalWorkingHrs) {
@@ -46,13 +47,12 @@ public class EmployeeWage implements IEmployeeWage {
 
 		EmployeeWage employeeWage = new EmployeeWage();
 		employeeWage.addCompany("WIPRO", 8, 8, 30);
-		employeeWage.addCompany("BRIDELABZ", 12, 8, 40);
-		employeeWage.addCompany("INFOSYS", 18, 80, 30);
+		employeeWage.addCompany("BRIDGELABZ", 12, 8, 40);
+		employeeWage.addCompany("INFOSYS", 18, 90, 30);
 		
 
-		for (int i = 0; i < employeeWage.numOfCompany; i++) {
-			System.out.println(employeeWage.companyEmpWages[i].getCompanyName() + " : "
-					+ employeeWage.companyEmpWages[i].getTotalEmpWage());
+		for (CompanyEmpWage cmp : employeeWage.companyEmpWageList) {
+			System.out.println(cmp.getCompanyName() + " : " + cmp.getTotalEmpWage());
 		}
 
 	}
